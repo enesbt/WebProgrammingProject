@@ -1,7 +1,20 @@
+using DataAccessLayer.AddServices;
+using DataAccessLayer.Context;
+using EntityLayer.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDalServices(builder.Configuration);
+builder.Services.AddIdentity<AppUser, AppRole>(x =>
+{
+	x.Password.RequiredLength = 2;
+	x.Password.RequireNonAlphanumeric = false;
+	x.Password.RequireLowercase = false;
+	x.Password.RequireUppercase = false;
+	x.Password.RequireDigit = false;
+}).AddEntityFrameworkStores<ProjectDbContext>();
 
 var app = builder.Build();
 
