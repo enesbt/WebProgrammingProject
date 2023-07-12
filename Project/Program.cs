@@ -1,3 +1,4 @@
+using BusinessLayer.AddServices;
 using DataAccessLayer.AddServices;
 using DataAccessLayer.Context;
 using EntityLayer.Concrete;
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDalServices(builder.Configuration);
+builder.Services.AddBlServices();
 builder.Services.AddIdentity<AppUser, AppRole>(x =>
 {
 	x.Password.RequiredLength = 2;
