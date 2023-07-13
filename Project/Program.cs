@@ -2,6 +2,7 @@ using BusinessLayer.AddServices;
 using DataAccessLayer.AddServices;
 using DataAccessLayer.Context;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,10 @@ builder.Services.AddIdentity<AppUser, AppRole>(x =>
 	x.Password.RequireLowercase = false;
 	x.Password.RequireUppercase = false;
 	x.Password.RequireDigit = false;
-}).AddEntityFrameworkStores<ProjectDbContext>();
+})
+    .AddEntityFrameworkStores<ProjectDbContext>();
+
+
 
 var app = builder.Build();
 
