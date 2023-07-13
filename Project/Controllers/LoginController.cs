@@ -25,21 +25,12 @@ namespace Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser user = await _userManager.FindByEmailAsync(signInViewModel.Mail);
-                if (user != null)
-                {
-                    await _signInManager.SignOutAsync();
-                    Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(user, signInViewModel.Password, false,true);
-
+                 await _signInManager.SignOutAsync();
+                 var result = await _signInManager.PasswordSignInAsync(signInViewModel.Mail, signInViewModel.Password, false, true);
 
                     if (result.Succeeded)
                         return RedirectToAction("Index", "MemberHome", new { area = "Member" });
-                }
-                else
-                {
-                    ModelState.AddModelError("NotUser", "Böyle bir kullanıcı bulunmamaktadır.");
-                    ModelState.AddModelError("NotUser2", "E-posta veya şifre yanlış.");
-                }
+                
             }
             return View(signInViewModel);
         }

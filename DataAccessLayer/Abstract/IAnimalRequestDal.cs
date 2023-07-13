@@ -12,5 +12,6 @@ namespace DataAccessLayer.Abstract
 	{
 
 		List<AnimalRequest> ListJoinTable();
+		List<AnimalRequest> ListById(Expression<Func<AnimalRequest, bool>> filter);
 	}
 }

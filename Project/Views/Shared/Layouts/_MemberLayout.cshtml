@@ -1,0 +1,22 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+
+@await Html.PartialAsync("/Views/ViewPartials/HomePartials/_homeHead.cshtml")
+<body>
+	<!--Header-->
+	@await Html.PartialAsync("/Views/ViewPartials/MemberPartial/_MemberHeaderPartial.cshtml")
+
+	<div class="container">
+		@RenderBody()
+	</div>
+
+	@await Html.PartialAsync("/Views/ViewPartials/HomePartials/_homeFooter.cshtml")
+	@await Html.PartialAsync("/Views/ViewPartials/HomePartials/_homeScripts.cshtml")
+</body>
+
+</html>

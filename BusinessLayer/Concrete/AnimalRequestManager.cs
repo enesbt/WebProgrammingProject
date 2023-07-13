@@ -18,7 +18,12 @@ namespace BusinessLayer.Concrete
 			_animalRequestDal = animalRequestDal;
 		}
 
-		public AnimalRequest GetById(int id)
+        public List<AnimalRequest> GetAnimalRequestById(string id)
+        {
+			return _animalRequestDal.ListById(x=>x.Id==id);
+        }
+
+        public AnimalRequest GetById(int id)
 		{
 			return _animalRequestDal.Get(x=>x.AnimalRequestId.Equals(id));
 		}

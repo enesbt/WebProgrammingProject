@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Concrete.AnimalRequest
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layouts/_MemberLayout.cshtml";
+}
+<table class="table table-bordered">
+    <tr>
+        <th>Resim</th>
+        <th>İsim</th>
+        <th>Yas</th>
+        <th>Barınak</th>
+        <th>Başvur</th>
+    </tr>
+       <tr>
+            <td>@Model.Animal.Image</td>
+            <td>@Model.Animal.Name</td>
+            <td>@Model.Animal.Age</td>
+            <td>@Model.Animal.AnimalHouse.Name</td>
+            <td><a href="/Member/AnimalGive/Index/@Model.AnimalId" class="btn btn-sucess">Başvur</a></td>
+        </tr>
+    
+</table>
+
+

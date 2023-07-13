@@ -1,0 +1,14 @@
+﻿@model EntityLayer.Concrete.AnimalType
+@{
+    ViewData["Title"] = "AddType";
+    Layout = "~/Views/Shared/Layouts/_AdminLayout.cshtml";
+}
+
+
+<h1>Tür Ekle</h1>
+
+<form method="post" class="form-group">
+    <label>Tür Adı</label>
+    <input name="Name" class="form-control" />
+    <input type="submit" value="Ekle" class="btn btn-outline-dark" />
+</form>

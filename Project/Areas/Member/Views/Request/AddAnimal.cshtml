@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Concrete.Animal
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "AddAnimal";
+    Layout = "~/Views/Shared/Layouts/_MemberLayout.cshtml";
+}
+
+<h1>AddAnimal</h1>
+
+<form method="post" class="form-group">
+    <label>İsmi</label>
+    <input asp-for="Name" class="form-control" />
+    <label>Cinsi</label>
+    @Html.DropDownListFor(x=>x.AnimalTypeId,(List<SelectListItem>)ViewBag.type,new{@class="form-control"})
+    <label>Yaşı</label>
+    <input class="form-control" asp-for="Age" />
+    <label>Barınak</label>
+    @Html.DropDownListFor(x=>x.AnimalHouseId,(List<SelectListItem>)ViewBag.house,new{@class="form-control"})
+    <label>Fotoğraf Link</label>
+    <input class="form-control" asp-for="Image" />
+    <br />
+    <input value="GONDER" class="btn btn-outline-danger" type="submit" />
+</form>
+
