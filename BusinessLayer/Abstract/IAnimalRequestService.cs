@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
 	public interface IAnimalRequestService:IGenericService<AnimalRequest>
 	{
 		List<AnimalRequest> GetAnimalRequestById(string id);
+		AnimalRequest GetAnimalRequestById(int id);
 	}
 }

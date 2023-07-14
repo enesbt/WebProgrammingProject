@@ -1,14 +1,17 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
 
 namespace Project.Areas.Member.Controllers
 {
 
     [Area("Member")]
     [Route("Member/[Controller]/[Action]")]
+    [Authorize(Roles = "Member")]
     public class RequestController : Controller
     {
         private readonly IAnimalRequestService _animalRequestService;
@@ -57,7 +60,7 @@ namespace Project.Areas.Member.Controllers
         {
 
             _animalService.TAdd(animal);
-            animal.Status = false;
+            animal.Status = true;
             AnimalRequest animalRequest = new AnimalRequest();
             animalRequest.Status = false;
             animalRequest.AnimalId= animal.AnimalId;

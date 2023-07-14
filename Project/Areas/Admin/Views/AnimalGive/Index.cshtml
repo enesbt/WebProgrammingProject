@@ -5,7 +5,6 @@
 }
 
 
-<h6>Hayvan Barınağına Hayvan Gönderme Başvurular</h6>
 <table class="table table-hover">
     <tr>
         <th>Id</th>
@@ -26,8 +25,8 @@
             <td>@item.Animal.Name</td>
             <td>@item.Animal.AnimalId</td>
             <td>@item.Status</td>
-            <td><a href="/Admin/AnimalGive/Active/@item.AnimalGiveId" class="btn btn-outline-danger">Aktif Yap</a></td>
-            <td><a href="/Admin/AnimalGive/Passive/@item.AnimalGiveId" class="btn btn-outline-danger">Pasif Yap</a></td>
+            <td><a href="/Admin/AnimalGive/Active?id=@item.AnimalGiveId" class="btn btn-outline-danger">Onayla </a></td>
+            <td><a href="/Admin/AnimalGive/Passive?id=@item.AnimalGiveId" class="btn btn-outline-danger">Pasif Yap</a></td>
         </tr>
     }
 </table>

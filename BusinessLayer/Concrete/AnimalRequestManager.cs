@@ -23,6 +23,11 @@ namespace BusinessLayer.Concrete
 			return _animalRequestDal.ListById(x=>x.Id==id);
         }
 
+        public AnimalRequest GetAnimalRequestById(int id)
+        {
+			return _animalRequestDal.GetByIdWithAnimal(x => x.AnimalRequestId == id);
+        }
+
         public AnimalRequest GetById(int id)
 		{
 			return _animalRequestDal.Get(x=>x.AnimalRequestId.Equals(id));

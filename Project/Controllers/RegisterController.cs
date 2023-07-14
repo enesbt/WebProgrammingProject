@@ -1,6 +1,8 @@
-﻿using EntityLayer.Concrete;
+﻿using DataAccessLayer.Context;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Project.Models;
 
 namespace Project.Controllers
@@ -9,7 +11,8 @@ namespace Project.Controllers
 	{
 		private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<AppRole> _roleManager;
-
+     
+            
         public RegisterController(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             _userManager = userManager;
@@ -33,18 +36,20 @@ namespace Project.Controllers
             {
                 AppUser user = new AppUser()
                 {
-                    //Email = registerViewModel.Email,
                     Age = registerViewModel.Age,
                     Adress = registerViewModel.Adress,
                     UserName = registerViewModel.Email,
                 };
 
                 var result = await _userManager.CreateAsync(user, registerViewModel.Password);
-;
-                //var addrole = await _userManager.AddToRoleAsync(user,"MEMBER");
+                
+
+                
+                
 
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "Member");
                     return RedirectToAction("Index", "Login");
                 }
                 else

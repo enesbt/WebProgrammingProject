@@ -18,9 +18,14 @@ namespace BusinessLayer.Concrete
 			_animalGiveDal = animalGiveDal;
 		}
 
-		public AnimalGive GetById(int id)
+        public List<AnimalGive> GetAnimalGiveById(string id)
+        {
+			return _animalGiveDal.ListById(x => x.Id == id);
+        }
+
+        public AnimalGive GetById(int id)
 		{
-			return _animalGiveDal.Get(x=>x.AnimalGiveId.Equals(id));
+			return _animalGiveDal.Get(x=>x.AnimalGiveId==id);
 		}
 
 		public AnimalGive GetById(string id)
@@ -28,7 +33,12 @@ namespace BusinessLayer.Concrete
 			return _animalGiveDal.Get(x => x.AnimalGiveId.Equals(id));
 		}
 
-		public List<AnimalGive> GetList()
+        public AnimalGive GetByIdWithAnimal(int id)
+        {
+			return _animalGiveDal.GetByIdWithAnimal(x=>x.AnimalGiveId==id);
+        }
+
+        public List<AnimalGive> GetList()
 		{
 			return _animalGiveDal.GetAll(); 
 		}

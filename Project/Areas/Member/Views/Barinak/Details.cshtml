@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.AnimalRequest
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Layouts/_MemberLayout.cshtml";
+}
+
+<h1>Detay</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Resim</th>
+        <th>İsim</th>
+        <th>Yas</th>
+        <th>Barınak</th>
+        <th>Kim Tarafından</th>
+        <th>Geliş Zamanı</th>
+    </tr>
+
+
+    <tr>
+        <td>@Model.Animal.Image</td>
+        <td>@Model.Animal.Name</td>
+        <td>@Model.Animal.Age</td>
+        <td>@Model.Animal.AnimalHouse.Name</td>
+        <td>@Model.AppUser.UserName</td>
+        <td>@Model.time</td>
+        <td><a href="/Member/Basvuru/Index?id=@Model.AnimalRequestId" class="btn btn-sucess">Başvur</a></td>
+    </tr>
+
+
+
+</table>

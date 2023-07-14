@@ -12,15 +12,19 @@
         <th>Barınak</th>
         <th>Başvur</th>
     </tr>
+    
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.Animal.Image</td>
-            <td>@item.Animal.Name</td>
-            <td>@item.Animal.Age</td>
-            <td>@item.Animal.AnimalHouse.Name</td>
-            <td><a href="/Member/AnimalGive/Index/@item.AnimalId" class="btn btn-sucess">Başvur</a></td>
-        </tr>
+        @if (item.Status==true&& item.Animal.Status==true)
+        {
+            <tr>
+                <td>@item.Animal.Image</td>
+                <td>@item.Animal.Name</td>
+                <td>@item.Animal.Age</td>
+                <td>@item.Animal.AnimalHouse.Name</td>
+                <td><a href="/Member/Barinak/Details?id=@item.AnimalRequestId" class="btn btn-sucess">Detay</a></td>
+            </tr>
+        }        
     }
 </table>
 

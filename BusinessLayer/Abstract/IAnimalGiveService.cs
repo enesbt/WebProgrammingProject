@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstract
 	public interface IAnimalGiveService:IGenericService<AnimalGive>
 	{
 
-	}
+        List<AnimalGive> GetAnimalGiveById(string id);
+        AnimalGive GetByIdWithAnimal(int id);
+    }
 }

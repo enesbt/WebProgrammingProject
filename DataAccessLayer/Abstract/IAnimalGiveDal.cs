@@ -11,6 +11,10 @@ namespace DataAccessLayer.Abstract
 	public interface IAnimalGiveDal:IGenericRepository<AnimalGive>
 	{
 		List<AnimalGive> ListJoinTable();
-	}
+
+        List<AnimalGive> ListById(Expression<Func<AnimalGive, bool>> filter);
+
+        AnimalGive GetByIdWithAnimal(Expression<Func<AnimalGive, bool>> filter);
+    }
 }
  

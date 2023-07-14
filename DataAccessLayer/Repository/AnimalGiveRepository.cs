@@ -20,7 +20,17 @@ namespace DataAccessLayer.Repository
 			_projectDbContext = projectDbContext;
 		}
 
-		public List<AnimalGive> ListJoinTable()
+        public AnimalGive GetByIdWithAnimal(Expression<Func<AnimalGive, bool>> filter)
+        {
+			return _projectDbContext.AnimalGives.Where(filter).Include(x => x.Animal).FirstOrDefault();
+        }
+
+        public List<AnimalGive> ListById(Expression<Func<AnimalGive, bool>> filter)
+        {
+            return _projectDbContext.AnimalGives.Where(filter).Include(x => x.Animal).ToList();
+        }
+
+        public List<AnimalGive> ListJoinTable()
 		{
 			return _projectDbContext.AnimalGives.Include(x => x.Animal).Include(x => x.AppUser).ToList();
 		}

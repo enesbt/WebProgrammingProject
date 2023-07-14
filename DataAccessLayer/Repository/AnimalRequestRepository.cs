@@ -20,6 +20,11 @@ namespace DataAccessLayer.Repository
 			_projectDbContext = projectDbContext;
 		}
 
+        public AnimalRequest GetByIdWithAnimal(Expression<Func<AnimalRequest, bool>> filter)
+        {
+			return _projectDbContext.AnimalRequests.Include(x => x.Animal).Include(x => x.AppUser).Include(x => x.Animal.AnimalHouse).FirstOrDefault(filter);
+        }
+
         public List<AnimalRequest> ListById(Expression<Func<AnimalRequest, bool>> filter)
         {
 			return _projectDbContext.AnimalRequests.Where(filter).Include(x => x.Animal).ToList();	
