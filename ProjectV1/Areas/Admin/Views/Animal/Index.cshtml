@@ -1,0 +1,31 @@
+﻿@model List<EntityLayer.Concrete.Animal>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layouts/_AdminLayout.cshtml";
+}
+
+<h5>@Localizer["hayvan"]</h5>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>@Localizer["isim"]</th>
+        <th>@Localizer["yas"]</th>
+        <th>@Localizer["durum"]</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.AnimalId</th>
+            <td>@item.Name</td>
+            <td>@item.Age</td>
+            <td>@{
+                    var d="";
+                    if (item.Status == true)
+                        d = "Sahiplendirilmedi";
+                    else
+                        d = "Sahiplendirildi";
+                }@d</td>
+        </tr>
+    }
+</table>

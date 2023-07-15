@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.AnimalRequest
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layouts/_MemberLayout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>@Localizer["resim"]</th>
+        <th>@Localizer["isim"]</th>
+        <th>@Localizer["yas"]</th>
+        <th>@Localizer["barınak"]</th>
+        <th>@Localizer["kim"] </th>
+        <th>@Localizer["gelis"]</th>
+    </tr>
+
+   
+    <tr>
+        <td>@Model.Animal.Image</td>
+        <td>@Model.Animal.Name</td>
+        <td>@Model.Animal.Age</td>
+        <td>@Model.Animal.AnimalHouse.Name</td>
+        <td>@Model.AppUser.UserName</td>
+        <td>@Model.time</td>
+        <td><a href="/Member/Basvuru/Basvur/@Model.AnimalRequestId" class="btn btn-sucess">Başvur</a></td>
+    </tr>
+        
+
+    
+</table>

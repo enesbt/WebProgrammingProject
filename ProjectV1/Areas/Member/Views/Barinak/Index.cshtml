@@ -1,0 +1,30 @@
+﻿@model List<EntityLayer.Concrete.AnimalRequest>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layouts/_MemberLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>@Localizer["resim"]</th>
+        <th>@Localizer["isim"]</th>
+        <th>@Localizer["yas"]</th>
+        <th>@Localizer["barınak"]</th>
+        <th>@Localizer["basvur"]</th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        @if (item.Status==true&& item.Animal.Status==true)
+        {
+            <tr>
+                <td>@item.Animal.Image</td>
+                <td>@item.Animal.Name</td>
+                <td>@item.Animal.Age</td>
+                <td>@item.Animal.AnimalHouse.Name</td>
+                <td><a href="/Member/Barinak/Details?id=@item.AnimalRequestId" class="btn btn-sucess">@Localizer["detay"]</a></td>
+            </tr>
+        }        
+    }
+</table>
+

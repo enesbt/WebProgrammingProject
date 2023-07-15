@@ -1,0 +1,39 @@
+﻿@model List<EntityLayer.Concrete.AnimalGive>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layouts/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th> @Localizer["zaman"]</th>
+        <th>@Localizer["kullanici"]</th>
+        <th>@Localizer["isim"]</th>
+        <th>@Localizer["hid"]</th>
+        <th>@Localizer["aktif"]</th>
+        <th>@Localizer["aktify"] </th>
+        <th>@Localizer["pasify"]</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AnimalGiveId</td>
+            <td>@item.time</td>
+            <td>@item.AppUser.UserName</td>
+            <td>@item.Animal.Name</td>
+            <td>@item.Animal.AnimalId</td>
+            <td>@item.Status</td>
+            <td><a href="/Admin/AnimalGive/Active?id=@item.AnimalGiveId" class="btn btn-outline-danger">Onayla </a></td>
+            <td><a href="/Admin/AnimalGive/Passive?id=@item.AnimalGiveId" class="btn btn-outline-danger">Pasif Yap</a></td>
+        </tr>
+    }
+</table>
+
+
+
+
+
+
+

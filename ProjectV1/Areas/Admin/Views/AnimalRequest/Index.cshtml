@@ -1,0 +1,37 @@
+﻿@model List<EntityLayer.Concrete.AnimalRequest>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layouts/_AdminLayout.cshtml";
+}
+
+
+
+
+
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>@Localizer["zaman"] </th>
+        <th>@Localizer["kullanıcı"]</th>
+        <th>@Localizer["isim"]</th>
+        <th>@Localizer["hid"]</th>
+        <th>@Localizer["aktif"]</th>
+        <th>@Localizer["aktify"]</th>
+        <th>@Localizer["pasify"]</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AnimalRequestId</td>
+            <td>@item.time</td>
+            <td>@item.AppUser.UserName</td>
+            <td>@item.Animal.Name</td>
+            <td>@item.Animal.AnimalId</td>
+            <td>@item.Status</td>
+            <td><a href="/Admin/AnimalRequest/Active?id=@item.AnimalRequestId" class="btn btn-outline-danger">Aktif Yap</a></td>
+            <td><a href="/Admin/AnimalRequest/Passive?id=@item.AnimalRequestId" class="btn btn-outline-danger">Pasif Yap</a></td>
+        </tr>
+    }
+</table>
+
+

@@ -1,0 +1,11 @@
+﻿@model EntityLayer.Concrete.Animal
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layouts/_MemberLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<a class="btn btn-info" href="/Member/Request/AddAnimal">@Localizer["add"]</a>

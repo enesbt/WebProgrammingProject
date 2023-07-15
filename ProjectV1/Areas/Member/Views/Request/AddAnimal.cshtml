@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Concrete.Animal
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "AddAnimal";
+    Layout = "~/Views/Shared/Layouts/_MemberLayout.cshtml";
+}
+
+<h1>AddAnimal</h1>
+
+<form method="post" class="form-group">
+    <label>@Localizer["isim"]</label>
+    <input asp-for="Name" class="form-control" />
+    <label>@Localizer["cins"]</label>
+    @Html.DropDownListFor(x=>x.AnimalTypeId,(List<SelectListItem>)ViewBag.type,new{@class="form-control"})
+    <label>@Localizer["yas"]</label>
+    <input class="form-control" asp-for="Age" />
+    <label>@Localizer["barınak"]</label>
+    @Html.DropDownListFor(x=>x.AnimalHouseId,(List<SelectListItem>)ViewBag.house,new{@class="form-control"})
+    <label>@Localizer["link"] </label>
+    <input class="form-control" asp-for="Image" />
+    <br />
+    <input value="@Localizer["gonder"]" class="btn btn-outline-danger" type="submit" />
+</form>
+

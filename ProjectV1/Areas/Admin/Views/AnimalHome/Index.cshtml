@@ -1,0 +1,30 @@
+﻿@model List<EntityLayer.Concrete.AnimalHouse>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layouts/_AdminLayout.cshtml";
+}
+
+
+<h6>Barınaklar</h6>
+<table class="table table-hover">
+    <tr>
+        <th>Id</th>
+        <th>@Localizer["ad"]</th>
+        <th>@Localizer["adres"]</th>
+        <th>@Localizer["aktif"]</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AnimalHouseId</td>
+            <td>@item.Name</td>
+            <td>@item.Adress</td>
+            <td>@item.Status</td>
+        </tr>
+
+    }
+</table>
+
+<a href="/Admin/AnimalHome/AddHouse" class="btn btn-outline-danger">@Localizer["ekle"]</a>
+
+

@@ -1,0 +1,17 @@
+﻿@model EntityLayer.Concrete.AnimalHouse
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "AddHouse";
+    Layout = "~/Views/Shared/Layouts/_AdminLayout.cshtml";
+}
+<h1>@Localizer["ekle"]</h1>
+
+<form method="post" class="form-group">
+    <label>@Localizer["ad"]</label>
+    <input asp-for="Name" class="form-control" />
+    <label>@Localizer["adres"]</label>
+    <input asp-for="Adress" class="form-control" />
+    <input type="submit" value="@Localizer["ekle"]" class="btn btn-outline-dark" />
+</form>
+
