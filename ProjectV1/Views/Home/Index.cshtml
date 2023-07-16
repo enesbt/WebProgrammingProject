@@ -1,8 +1,32 @@
-﻿@{
+﻿@model List<EntityLayer.Concrete.AnimalRequest>
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/Layouts/_HomeLayout.cshtml";
 }
 
-<h1>Index</h1>
 
 <p>@Localizer["Merhaba"]</p>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>@Localizer["resim"]</th>
+        <th>@Localizer["isim"]</th>
+        <th>@Localizer["yas"]</th>
+        <th>@Localizer["barınak"]</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        @if (item.Status == true && item.Animal.Status == true)
+        {
+            <tr>
+                <td><image src="@item.Animal.Image"></image></td>
+                <td>@item.Animal.Name</td>
+                <td>@item.Animal.Age</td>
+                <td>@item.Animal.AnimalHouse.Name</td>
+            </tr>
+        }
+    }
+</table>

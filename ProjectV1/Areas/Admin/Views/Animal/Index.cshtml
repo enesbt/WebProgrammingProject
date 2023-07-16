@@ -12,6 +12,7 @@
         <th>@Localizer["isim"]</th>
         <th>@Localizer["yas"]</th>
         <th>@Localizer["durum"]</th>
+        <th>Image</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -26,6 +27,7 @@
                     else
                         d = "Sahiplendirildi";
                 }@d</td>
+            <td> <image src="@item.Image"></image> </td>
         </tr>
     }
 </table>

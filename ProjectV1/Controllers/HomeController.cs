@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Abstract;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
 using Project.Models;
@@ -10,15 +11,19 @@ namespace Project.Controllers
     {
         private readonly IHtmlLocalizer<Controllers.HomeController> _htmlLocalizer;
 
-        public HomeController(IHtmlLocalizer<Controllers.HomeController> htmlLocalizer)
-            => _htmlLocalizer = htmlLocalizer;
+        private readonly IAnimalRequestService _animalRequestService;
 
+        public HomeController(IHtmlLocalizer<HomeController> htmlLocalizer, IAnimalRequestService animalRequestService)
+        {
+            _htmlLocalizer = htmlLocalizer;
+            _animalRequestService = animalRequestService;
+        }
 
         public IActionResult Index()
         {
+            var values = _animalRequestService.GetListJoinTable();
 
-            ViewBag.PageHome = _htmlLocalizer["page.Home"];
-            return View();
+            return View(values);
         }
 
 

@@ -129,6 +129,9 @@
   <data name="sifre" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="title" xml:space="preserve">
+    <value>Register</value>
+  </data>
   <data name="yas" xml:space="preserve">
     <value>Your Age</value>
   </data>

@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="barınak" xml:space="preserve">
+    <value>Barınak</value>
+  </data>
+  <data name="isim" xml:space="preserve">
+    <value>İsim</value>
+  </data>
   <data name="Merhaba" xml:space="preserve">
     <value>Merhaba</value>
+  </data>
+  <data name="resim" xml:space="preserve">
+    <value>Resim</value>
+  </data>
+  <data name="yas" xml:space="preserve">
+    <value>Yaş</value>
   </data>
 </root>
