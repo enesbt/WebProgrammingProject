@@ -13,7 +13,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDalServices(builder.Configuration);
 builder.Services.AddBlServices();
-
 builder.Services.AddIdentity<AppUser, AppRole>(x =>
 {
 	x.Password.RequiredLength = 2;
