@@ -29,7 +29,7 @@ builder.Services.AddLocalization(options =>
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
 
 
-
+ 
 
 var app = builder.Build();
 
